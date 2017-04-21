@@ -1,0 +1,18 @@
+[
+  {
+    "ParameterKey":"EmailAddress",
+    "ParameterValue":"nyy021@gmail.com"
+  },
+  {
+    "ParameterKey": "RepositoryName",
+    "ParameterValue": "MySQL-Vault"
+  },
+  {
+    "ParameterKey":"RepositoryBranch",
+    "ParameterValue":"master"
+  },
+  {
+    "ParameterKey":"EC2KeyPairName",
+    "ParameterValue":"danghadgeNVA"
+  }
+]
