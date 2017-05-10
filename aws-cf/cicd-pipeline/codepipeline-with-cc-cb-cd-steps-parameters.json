@@ -5,7 +5,7 @@
   },
   {
     "ParameterKey": "RepositoryName",
-    "ParameterValue": "MySQL-Vault"
+    "ParameterValue": "TicketService"
   },
   {
     "ParameterKey":"RepositoryBranch",

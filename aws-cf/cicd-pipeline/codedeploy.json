@@ -41,7 +41,7 @@
       "Description": "Select VPC.",
       "Type": "AWS::EC2::VPC::Id"
     },
-    "PrivateSubnet": {
+    "Subnet": {
       "Description": "Private Subnet to Deploy CodeDeploy Host in.",
       "Type": "AWS::EC2::Subnet::Id"
     },
@@ -55,7 +55,45 @@
       "ConstraintDescription":"Must be a valid IP CIDR range of the form x.x.x.x/x."
     }
   },
+  "Metadata":{
+    "AWS::CloudFormation::Interface":{
+      "ParameterGroups":[
+        {
+          "Label":{
+            "default":"Network Configuration"
+          },
+          "Parameters":[
+            "VPC",
+            "Subnet"          ]
+        },
+        {
+          "Label":{
+            "default":"Instance Configuration"
+          },
+          "Parameters":[
+            "InstanceCount",
+            "InstanceType",
+            "KeyPairName",
+            "SSHLocation"]
+        }
+      ],
+      "ParameterLabels":{
+        "InstanceCount":{
+          "default":"Instance Count"
+        },
+        "InstanceType":{
+          "default":"Intance Type"
+        },
+        "KeyPairName":{
+          "default":"Key Pair"
+        },
+        "SSHLocation":{
+          "default":"SSH Location"
+        }
 
+      }
+    }
+  },
   "Mappings" : {
     "AWSInstanceType2Arch" : {
       "t1.micro"    : { "Arch" : "PV64"   },
@@ -327,7 +365,7 @@
             }
           }
         ],
-        "SubnetId": {"Ref": "PrivateSubnet"},
+        "SubnetId": {"Ref": "Subnet"},
         "IamInstanceProfile":{
           "Ref":"InstanceRoleInstanceProfile"
         }

@@ -269,7 +269,7 @@
     "CodeDeployEC2InstancesStack":{
       "Type":"AWS::CloudFormation::Stack",
       "Properties":{
-        "TemplateURL":"https://s3.amazonaws.com/...../codedeploy.json",
+        "TemplateURL":"https://s3.amazonaws.com/stelligentsia-labs/dan.ghadge.labs/cf-templates/cicd-pipeline/codedeploy.json",
         "TimeoutInMinutes":"60",
         "Parameters":{
           "TagValue":{
@@ -348,7 +348,7 @@
                 },
                 "OutputArtifacts":[
                   {
-                    "Name":"MySQLVault"
+                    "Name":"TicketService"
                   }
                 ],
                 "Configuration":{
@@ -369,7 +369,7 @@
               {
                 "InputArtifacts":[
                   {
-                    "Name":"MySQLVault"
+                    "Name":"TicketService"
                   }
                 ],
                 "Name":"Build",
@@ -381,7 +381,7 @@
                 },
                 "OutputArtifacts":[
                   {
-                    "Name":"MySQLVaultBuild"
+                    "Name":"TicketServiceBuild"
                   }
                 ],
                 "Configuration":{
@@ -399,7 +399,7 @@
               {
                 "InputArtifacts":[
                   {
-                    "Name":"MySQLVaultBuild"
+                    "Name":"TicketServiceBuild"
                   }
                 ],
                 "Name":"DemoFleet",

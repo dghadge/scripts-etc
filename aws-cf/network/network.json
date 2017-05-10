@@ -259,7 +259,7 @@
     "vpc":{
       "Type":"AWS::CloudFormation::Stack",
       "Properties":{
-        "TemplateURL":"https://s3.amazonaws.com/.../cf-templates/network/vpc-and-subnets.json",
+        "TemplateURL":"https://s3.amazonaws.com/stelligentsia-labs/dan.ghadge.labs/cf-templates/network/vpc-and-subnets.json",
         "TimeoutInMinutes":"15",
         "Parameters" : {
           "Owner" : {"Ref": "Owner"},
@@ -290,7 +290,7 @@
       "DependsOn": ["vpc"],
       "Type":"AWS::CloudFormation::Stack",
       "Properties":{
-        "TemplateURL":"https://s3.amazonaws.com/.../cf-templates/network/nat-gateway.json",
+        "TemplateURL":"https://s3.amazonaws.com/stelligentsia-labs/dan.ghadge.labs/cf-templates/network/nat-gateway.json",
         "TimeoutInMinutes":"15",
         "Parameters" : {
           "Owner" : {"Ref": "Owner"},
@@ -310,7 +310,7 @@
       ],
       "Type":"AWS::CloudFormation::Stack",
       "Properties":{
-        "TemplateURL":"https://s3.amazonaws.com/.../cf-templates/network/bastion.json",
+        "TemplateURL":"https://s3.amazonaws.com/stelligentsia-labs/dan.ghadge.labs/cf-templates/network/bastion.json",
         "TimeoutInMinutes":"15",
         "Parameters" : {
           "Owner" : {"Ref": "Owner"},
