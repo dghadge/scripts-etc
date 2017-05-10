@@ -32,6 +32,14 @@
       "AllowedPattern":"[\\x20-\\x7E]*",
       "ConstraintDescription":"Can contain only ASCII characters."
     },
+    "VPC": {
+      "Description": "Select VPC.",
+      "Type": "AWS::EC2::VPC::Id"
+    },
+    "Subnet": {
+      "Description": "Private Subnet to Deploy CodeDeploy Host in.",
+      "Type": "AWS::EC2::Subnet::Id"
+    },
     "EC2KeyPairName":{
       "Description":"Name of an existing Amazon EC2 key pair to enable SSH access to the instances.",
       "Type":"AWS::EC2::KeyPair::KeyName",
@@ -46,10 +54,18 @@
       "ParameterGroups":[
         {
           "Label":{
-            "default":"Dynamic Configuration"
+            "default":"CodeDeploy Configuration"
           },
           "Parameters":[
-            "EC2KeyPairName",
+            "VPC",
+            "Subnet",
+            "EC2KeyPairName"]
+        },
+        {
+          "Label":{
+            "default":"CodePipeline Configuration"
+          },
+          "Parameters":[
             "RepositoryName",
             "RepositoryBranch"
           ]
@@ -275,7 +291,13 @@
           "TagValue":{
             "Ref":"TagValue"
           },
-          "KeyPairName":{
+          "VPC":{
+            "Ref":"VPC"
+          },
+          "Subnet":{
+            "Ref":"Subnet"
+          },
+            "KeyPairName":{
             "Ref":"EC2KeyPairName"
           }
         }

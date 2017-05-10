@@ -12,6 +12,14 @@
     "ParameterValue":"master"
   },
   {
+    "ParameterKey":"VPC",
+    "ParameterValue":"vpc-66404e00"
+  },
+  {
+    "ParameterKey":"Subnet",
+    "ParameterValue":"subnet-af924fe7"
+  },
+  {
     "ParameterKey":"EC2KeyPairName",
     "ParameterValue":"danghadgeNVA"
   }
