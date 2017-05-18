@@ -4,7 +4,8 @@
         aws kms create-alias --alias-name alias/blahtestkey --target-key-id blahblah-bd8-009c02f41665 
 
 ###  	2. Encrypt data (<4KB)
-        aws kms encrypt --key-id alias/blahtestkey  --plaintext "Hello World - I am Sensitive" --query CiphertextBlob --encryption-context UserName=heman --output text | base64 --decode > encrypted-data
+        aws kms encrypt --key-id alias/blahtestkey  --plaintext "Hello World - I am Sensitive" \ 
+	--query CiphertextBlob --encryption-context UserName=heman --output text | base64 --decode > encrypted-data
 
 ###     3. Decrypt data (<4KB)
         echo “Decrypted Data: $(aws kms decrypt --ciphertext-blob fileb://encrypted-data \
