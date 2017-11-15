@@ -116,4 +116,10 @@
 	
 	
 	
-	
+### Amazon EC2 Container Service (Amazon ECS) terminology mappings with Docker
+    Cluster		Docker Machine/Host
+    Service		Docker Swarm Service
+    Task Definition	Container Image
+    Task		Container
+    Repository		Docker Hub
+
