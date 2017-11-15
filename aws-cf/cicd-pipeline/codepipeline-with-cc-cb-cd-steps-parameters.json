@@ -13,14 +13,14 @@
   },
   {
     "ParameterKey":"VPC",
-    "ParameterValue":"vpc-66404e00"
+    "ParameterValue":"vpc-3e9b2a59"
   },
   {
     "ParameterKey":"Subnet",
-    "ParameterValue":"subnet-af924fe7"
+    "ParameterValue":"subnet-8be1bed3"
   },
   {
     "ParameterKey":"EC2KeyPairName",
-    "ParameterValue":"danghadgeNVA"
+    "ParameterValue":"dgg-keypair"
   }
 ]

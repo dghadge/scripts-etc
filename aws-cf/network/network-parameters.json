@@ -13,7 +13,7 @@
   },
   {
     "ParameterKey": "VPCSubnetCidrBlock",
-    "ParameterValue": "10.2.0.0/16"
+    "ParameterValue": "153.2.0.0/16"
   },
   {
     "ParameterKey": "AvailabilityZone1",
@@ -25,31 +25,31 @@
   },
   {
     "ParameterKey": "AvailabilityZone3",
-    "ParameterValue": "c"
+    "ParameterValue": "b"
   },
   {
     "ParameterKey": "PublicSubnetCidrBlock1",
-    "ParameterValue": "10.2.1.0/24"
+    "ParameterValue": "153.2.1.0/24"
   },
   {
     "ParameterKey": "PublicSubnetCidrBlock2",
-    "ParameterValue": "10.2.2.0/24"
+    "ParameterValue": "153.2.2.0/24"
   },
   {
     "ParameterKey": "PublicSubnetCidrBlock3",
-    "ParameterValue": "10.2.3.0/24"
+    "ParameterValue": "153.2.3.0/24"
   },
   {
     "ParameterKey": "PrivateSubnetCidrBlock1",
-    "ParameterValue": "10.2.4.0/24"
+    "ParameterValue": "153.2.4.0/24"
   },
   {
     "ParameterKey": "PrivateSubnetCidrBlock2",
-    "ParameterValue": "10.2.5.0/24"
+    "ParameterValue": "153.2.5.0/24"
   },
   {
     "ParameterKey": "PrivateSubnetCidrBlock3",
-    "ParameterValue": "10.2.6.0/24"
+    "ParameterValue": "153.2.6.0/24"
   },
   {
     "ParameterKey": "AllowHttpToPublicRuleNumber",
@@ -101,10 +101,10 @@
   },
   {
     "ParameterKey": "Ec2KeyPair",
-    "ParameterValue": "danghadgeNVA"
+    "ParameterValue": "dghadgecmci"
   },
   {
     "ParameterKey": "BastionInstanceType",
-    "ParameterValue": "t2.small"
+    "ParameterValue": "t2.micro"
   }
 ]

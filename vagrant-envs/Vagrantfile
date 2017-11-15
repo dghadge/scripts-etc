@@ -1,0 +1,10 @@
+Vagrant.configure(2) do |config|
+
+  config.vm.define "chefnodecentos" do |chefnodecentos|
+    chefnodecentos.vm.box = "puphpet/centos65-x64"
+    chefnodecentos.vm.hostname = "chefnodecentos"
+    chefnodecentos.vm.network "private_network", ip: "192.168.22.20"
+    chefnodecentos.vm.network "forwarded_port", guest: 8080, host: 8082
+  end
+
+end

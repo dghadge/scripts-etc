@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "Bastion Host",
+  "Description": "WebServer-Demo",
   "Parameters": {
     "Owner": {
       "Description": "Enter Team or Individual Name Responsible for the Stack.",
@@ -19,25 +19,28 @@
     },
     "VPC": {
       "Description": "Select VPC.",
-      "Type": "AWS::EC2::VPC::Id"
+      "Type": "AWS::EC2::VPC::Id",
+      "Default": "vpc-a0278ad9"
     },
     "PublicSubnet": {
       "Description": "Public Subnet to Deploy Bastion Host in.",
-      "Type": "AWS::EC2::Subnet::Id"
+      "Type": "AWS::EC2::Subnet::Id",
+      "Default": "subnet-d6d3d1b3"
     },
     "PublicNetworkAcl": {
       "Description": "Enter Public Network ACL ID.",
       "Type": "String",
-      "Default": "acl-0000000"
+      "Default": "acl-3bb1f842"
     },
     "InternalAccessSecurityGroup": {
       "Description": "Security Group That Allows Bastion Host Access to Instances.",
-      "Type": "AWS::EC2::SecurityGroup::Id"
+      "Type": "AWS::EC2::SecurityGroup::Id",
+      "Default": "sg-54d62525"
     },
     "OsType": {
       "Description": "Select OS Type for Bastion Host.",
       "Type": "String",
-      "Default": "amazon",
+      "Default": "rhel",
       "AllowedValues": [
         "amazon",
         "centos",
@@ -101,12 +104,13 @@
     },
     "Ec2KeyPair": {
       "Description": "Select Keypair to Assign to EC2 Instances",
-      "Type": "AWS::EC2::KeyPair::KeyName"
+      "Type": "AWS::EC2::KeyPair::KeyName",
+      "Default": "dghadgecmci"
     },
     "InstanceType": {
       "Description": "Select Instance Type.",
       "Type": "String",
-      "Default": "t2.small",
+      "Default": "t2.micro",
       "AllowedValues": [
         "t2.nano",
         "t2.micro",
@@ -167,10 +171,10 @@
   },
   "Mappings": {
     "RegionMap": {
-      "us-west-2": {
-        "AMIAmazon": "ami-b04e92d0",
+      "us-west-1": {
+        "AMIAmazon": "ami-327f5352",
         "AMICentos": "ami-d2c924b2",
-        "AMIRhel": "ami-775e4f16",
+        "AMIRhel": "ami-e69ebc86",
         "AMISuse": "ami-d2627db3",
         "AMIUbuntu": "ami-d732f0b7",
         "AMIWindows": "ami-2827f548"
@@ -320,33 +324,7 @@
       ],
       "Properties": {
         "IamInstanceProfile": {"Ref": "IamInstanceProfile"},
-        "ImageId": {
-          "Fn::If": [
-            "RhelHost",
-            {"Fn::FindInMap": ["RegionMap",  {"Ref": "AWS::Region"}, "AMIRhel"]},
-            {"Fn::If": [
-              "UbuntuHost",
-              {"Fn::FindInMap": ["RegionMap",  {"Ref": "AWS::Region"}, "AMIUbuntu"]},
-              {"Fn::If": [
-                "AmazonHost",
-                {"Fn::FindInMap": ["RegionMap",  {"Ref": "AWS::Region"}, "AMIAmazon"]},
-                {"Fn::If": [
-                  "CentosHost",
-                  {"Fn::FindInMap": ["RegionMap",  {"Ref": "AWS::Region"}, "AMICentos"]},
-                  {"Fn::If": [
-                    "SuseHost",
-                    {"Fn::FindInMap": ["RegionMap",  {"Ref": "AWS::Region"}, "AMISuse"]},
-                    {"Fn::If": [
-                      "WindowsHost",
-                      {"Fn::FindInMap": ["RegionMap",  {"Ref": "AWS::Region"}, "AMIWindows"]},
-                      "unknown"
-                    ]}
-                  ]}
-                ]}
-              ]}
-            ]}
-          ]
-        },
+        "ImageId": "ami-e69ebc86",
         "InstanceInitiatedShutdownBehavior": "stop",
         "InstanceType": {"Ref": "InstanceType"},
         "KeyName": {"Ref": "Ec2KeyPair"},

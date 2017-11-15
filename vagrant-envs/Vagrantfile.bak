@@ -1,0 +1,28 @@
+Vagrant.configure(2) do |config|
+
+  config.vm.provider "virtualbox" do |v|
+     v.memory = 4096
+  end
+
+  config.vm.define "chefserveropensrc" do |chefserveropensrc|
+    chefserveropensrc.vm.box = "ubuntu/trusty64"
+    chefserveropensrc.vm.hostname = "chefserveropensrc"
+    chefserveropensrc.vm.network "private_network", ip: "192.168.22.10"
+    chefserveropensrc.vm.network "forwarded_port", guest: 8080, host: 8081
+  end
+
+#  config.vm.define "chefnodecentos" do |chefnodecentos|
+#    chefnodecentos.vm.box = "puphpet/centos65-x64"
+#    chefnodecentos.vm.hostname = "chefnodecentos"
+#    chefnodecentos.vm.network "private_network", ip: "192.168.22.20"
+#    chefnodecentos.vm.network "forwarded_port", guest: 8080, host: 8082
+#  end
+
+#  config.vm.define "chefnodeubuntu" do |chefnodeubuntu|
+#    chefnodeubuntu.vm.box = "ubuntu/trusty64"
+#    chefnodeubuntu.vm.hostname = "chefnodeubuntu"
+#    chefnodeubuntu.vm.network "private_network", ip: "192.168.22.30"
+#    chefnodeubuntu.vm.network "forwarded_port", guest: 8080, host: 8083
+#  end
+  
+end
