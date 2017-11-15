@@ -121,5 +121,5 @@
     Service			Docker Swarm Service
     Task Definition		Container Image
     Task			Container
-    Repository			Docker Hub
+    Repository		Docker Hub
 
